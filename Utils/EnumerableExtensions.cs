@@ -24,6 +24,12 @@ public static class EnumerableExtensions
     {
         foreach (var item in source) action.Invoke(item);
     }
+    
+    public static async Task ForEachDoAsync<T>(this IEnumerable<T> source, Func<T, Task> action)
+    {
+        var tasks = source.Select(action);
+        await Task.WhenAll(tasks).ConfigureAwait(false);
+    }
 
     public static (IEnumerable<T> trueItems, IEnumerable<T> falseItems) Partition<T>(this IEnumerable<T> source,
         Func<T, bool> predicate)
