@@ -1,0 +1,6 @@
+# clean up commit history by mapping multiple commit identities to a single, preferred identity
+
+# The following command can be used to see a distinct list of commit authors
+# git shortlog -se
+
+Joe Bloggs <info@jbloggs.com> <joe@jbloggs.com>
